@@ -3,11 +3,6 @@ import {Product} from "../Product.ts";
 
 type Props = {
     product: Product;
-/*    id: number,
-    name: string,
-    category: Category,
-    status: Status,
-    price: number*/
 }
 
 export default function ProductCard(props : Props) {
