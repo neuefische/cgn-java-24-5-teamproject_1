@@ -1,0 +1,1 @@
+export type Category =  "Fruit" | "Sweet" | "Vegetables" | "Meat" | "Fish" | "Drink"
