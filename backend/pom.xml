@@ -27,6 +27,9 @@
         <url/>
     </scm>
     <properties>
+        <sonar.organization>neuefische</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.projectName>neuefische_cgn-java-24-5-teamproject_1_backend</sonar.projectName>
         <java.version>23</java.version>
     </properties>
     <dependencies>
