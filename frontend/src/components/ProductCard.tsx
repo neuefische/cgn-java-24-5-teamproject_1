@@ -14,6 +14,8 @@ export default function ProductCard(props : Props) {
             <p>"Name: "{props.product.name}</p>
             <p>"Category: "{props.product.category}</p>
             <p>"Price: "{props.product.price}</p>
+            <img src={`/${props.product.image}`} alt="image of product"/>
+
 
         </div>
     )
