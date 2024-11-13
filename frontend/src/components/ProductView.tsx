@@ -6,15 +6,17 @@ import {Product} from "../Product.ts";
 
 export default function ProductView() {
 
-    const [products,setProducts] = useState<Product[]>([])
+    const [products, setProducts] = useState<Product[]>([])
 
-    function fetchAllProducts(){
+    function fetchAllProducts() {
         axios({
-            method:"GET",
-            url:"api/store",
+            method: "GET",
+            url: "api/store",
 
         })
-            .then((response)=>{setProducts(response.data)})
+            .then((response) => {
+                setProducts(response.data)
+            })
     }
 
     useEffect(() => {
@@ -22,11 +24,15 @@ export default function ProductView() {
     }, []);
 
     return (
-        <div>
-            <p>Products : </p>
-            {
-            products.map((product)=>{return <ProductCard product={product} key={product.id}/>})
-            }
+        <div className="productView-container">
+            <h2>Products</h2>
+            <div className="productList-container">
+                {
+                    products.map((product) => {
+                        return <ProductCard product={product} key={product.id}/>
+                    })
+                }
+            </div>
         </div>
     );
 };

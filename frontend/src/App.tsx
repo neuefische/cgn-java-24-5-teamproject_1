@@ -6,7 +6,7 @@ export default function App() {
 
   return (
     <>
-        <p>Welcome</p>
+        <h1>Grocery</h1>
         <ProductView/>
     </>
   )

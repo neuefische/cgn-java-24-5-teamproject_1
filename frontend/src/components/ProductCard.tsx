@@ -7,13 +7,12 @@ type Props = {
 
 export default function ProductCard(props : Props) {
     return (
-        <div>
-            <p>product</p>
+        <div className="productCard-container">
 
-            <p>"Id: "{props.product.id}</p>
-            <p>"Name: "{props.product.name}</p>
-            <p>"Category: "{props.product.category}</p>
-            <p>"Price: "{props.product.price}</p>
+
+            <h3>{props.product.name}</h3>
+            <p>Category: {props.product.category}</p>
+            <p>Price: {props.product.price} euro</p>
             <img src={`/${props.product.image}`} alt="image of product"/>
 
 
