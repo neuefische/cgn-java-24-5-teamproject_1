@@ -1,6 +1,8 @@
 # change setting here
-FROM temurin:23
+FROM openjdk:23
 
-COPY backend/target/may-app.jar my-app.jar
+EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "my-app.jar"]
+COPY backend/target/GroceryShopping-App.jar GroceryShopping-App.jar
+
+ENTRYPOINT ["java", "-jar", "GroceryShopping-App.jar"]
