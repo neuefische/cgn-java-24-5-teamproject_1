@@ -3,10 +3,12 @@ import ProductCard from "./ProductCard.tsx";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {Product} from "../Product.ts";
+import SearchBar from "./SearchBar.tsx"
 
 export default function ProductView() {
 
-    const [products, setProducts] = useState<Product[]>([])
+    const [products, setProducts] = useState<Product[]>([]);
+    const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
 
     function fetchAllProducts() {
         axios({
@@ -15,9 +17,22 @@ export default function ProductView() {
 
         })
             .then((response) => {
-                setProducts(response.data)
-            })
+                setProducts(response.data);
+                setFilteredProducts(response.data);
+            });
     }
+
+    const filterProducts = (query: string) => {
+        if (query.trim() === "") {
+            setFilteredProducts(products);
+        } else {
+            const lowercasedQuery = query.toLowerCase();
+            const filtered = products.filter((product) =>
+                product.name.toLowerCase().includes(lowercasedQuery)
+            );
+            setFilteredProducts(filtered);
+        }
+    };
 
     useEffect(() => {
         fetchAllProducts();
@@ -26,13 +41,12 @@ export default function ProductView() {
     return (
         <div className="productView-container">
             <h2>Products</h2>
+            <SearchBar onSearch={filterProducts}/> {/* Add the SearchBar component */}
             <div className="productList-container">
-                {
-                    products.map((product) => {
-                        return <ProductCard product={product} key={product.id}/>
-                    })
-                }
+                {filteredProducts.map((product) => {
+                    return <ProductCard product={product} key={product.id}/>;
+                })}
             </div>
         </div>
     );
-};
+}
