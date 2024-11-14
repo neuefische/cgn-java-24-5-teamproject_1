@@ -1,30 +1,40 @@
-[{
-  "_id": "1",
-  "shoppingList": [{
-    "category": "fruit",
-    "name": "apple",
-    "price": 1.5,
-    "image": "apple.jpg"
+[
+  {
+    "_id": "1",
+    "shoppingList": [
+      {
+        "_id": "1",
+        "category": "fruit",
+        "name": "apple",
+        "price": 1.5,
+        "image": "apple.jpg"
+      },
+      {
+        "_id": "2",
+        "category": "fruit",
+        "name": "banana",
+        "price": 1,
+        "image": "banane.jpg"
+      }
+    ]
   },
-    {
-      "category": "fruit",
-      "name": "banana",
-      "price": 1,
-      "image": "banane.jpg"
-    }]
-},
-{
-  "_id": "2",
-  "shoppingList": [{
-    "category": "fruit",
-    "name": "apple",
-    "price": 1.5,
-    "image": "apple.jpg"
-  },
-    {
-      "category": "fruit",
-      "name": "banana",
-      "price": 1,
-      "image": "banane.jpg"
-    }]
-}]
+  {
+    "_id": "2",
+    "shoppingList": [
+      {
+        "_id": "1",
+        "category": "fruit",
+        "name": "apple",
+        "price": 1.5,
+        "image": "apple.jpg"
+      },
+      {
+        "_id": "2",
+        "category": "fruit",
+        "name": "banana",
+        "price": 1,
+        "image": "banane.jpg"
+      }
+    ]
+  }
+]
