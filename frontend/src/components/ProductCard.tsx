@@ -1,9 +1,21 @@
 import "./ProductCard.css"
+import {Product} from "../Product.ts";
 
-export default function ProductCard() {
+type Props = {
+    product: Product;
+}
+
+export default function ProductCard(props : Props) {
     return (
-        <>
-        <p>product</p>
-        </>
-    );
+        <div className="productCard-container">
+
+
+            <h3>{props.product.name}</h3>
+            <p>Category: {props.product.category}</p>
+            <p>Price: {props.product.price} euro</p>
+            <img src={`/${props.product.image}`} alt="image of product"/>
+
+
+        </div>
+    )
 }

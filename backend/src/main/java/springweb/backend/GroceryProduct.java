@@ -7,6 +7,7 @@ public record GroceryProduct(
         String id,
         String category,
         String name,
-        double price
+        double price,
+        String image
         ) {
 }

@@ -1,0 +1,63 @@
+[{
+  "_id": "1",
+  "category": "fruit",
+  "name": "apple",
+  "price": 1.5,
+  "image": "apple.jpg"
+},
+{
+  "_id": "2",
+  "category": "fruit",
+  "name": "banana",
+  "price": 1,
+  "image": "banane.jpg"
+},
+{
+  "_id": "3",
+  "category": "spices",
+  "name": "salt (500g)",
+  "price": 3.49,
+  "image": "salt.jpg"
+},
+{
+  "_id": "4",
+  "category": "spices",
+  "name": "chili (100g)",
+  "price": 4.5,
+  "image": "chili.jpg"
+},
+{
+  "_id": "5",
+  "category": "cutlery",
+  "name": "fork",
+  "price": 5,
+  "image": "fork.jpg"
+},
+{
+  "_id": "6",
+  "category": "cutlery",
+  "name": "spoon",
+  "price": 5.5,
+  "image": "spoon.jpg"
+},
+{
+  "_id": "7",
+  "category": "meat",
+  "name": "zebra",
+  "price": 599.99,
+  "image": "zebra.jpg"
+},
+{
+  "_id": "8",
+  "category": "meat",
+  "name": "hippopotamus",
+  "price": 699.99,
+  "image": "hippo.jpg"
+},
+{
+  "_id": "9",
+  "category": "electronics",
+  "name": "playstation 5",
+  "price": 299.99,
+  "image": "ps5.jpg"
+}]
