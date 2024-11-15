@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class ClientService {
-    ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
 
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
@@ -55,6 +55,13 @@ public class ClientService {
     public List<GroceryProduct> getAllGroceryProductsFromClient(String id) {
         if (clientRepository.existsById(id)){
             return clientRepository.findById(id).get().shoppingList();
+        }
+        throw new NoSuchElementException("No Client found with Id:" + id);
+    }
+
+    public Client getClientById(String id) {
+        if (clientRepository.existsById(id)){
+            return clientRepository.findById(id).get();
         }
         throw new NoSuchElementException("No Client found with Id:" + id);
     }

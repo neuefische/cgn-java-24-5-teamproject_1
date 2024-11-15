@@ -1,4 +1,5 @@
 import "./ShoppingListCard.css"
+//import {Client} from "../Client.ts";
 import {Product} from "../Product.ts";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 export function ShoppingListCard(props: Props) {
     return (
         <div>
-            <p>{props.product.id} - {props.product.name} - {props.product.category} - {props.product.price}</p>
+            <p>{props.product.name}</p>
         </div>
     );
 };

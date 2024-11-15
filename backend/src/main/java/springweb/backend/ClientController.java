@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping("/api/store/clients")
 public class ClientController {
 
-    ClientService clientService;
+    private final ClientService clientService;
 
     public ClientController(ClientService groceryService) {
         this.clientService = groceryService;
@@ -21,9 +21,9 @@ public class ClientController {
         return clientService.getAllClients();
     }
 
-    @GetMapping({"id"})
-    public List<GroceryProduct> getAllGroceryProductsFromClient(@PathVariable String id) {
-        return clientService.getAllGroceryProductsFromClient(id);
+    @GetMapping({"{id}"})
+    public Client getClientByID(@PathVariable String id) {
+        return clientService.getClientById(id);
     }
 
     @PostMapping("{id}/shoppingList")
