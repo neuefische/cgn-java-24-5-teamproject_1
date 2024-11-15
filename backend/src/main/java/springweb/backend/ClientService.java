@@ -22,15 +22,17 @@ public class ClientService {
         return clientRepository.findById(id);
     }
 
-    /* public Client addGroceryProductToClient(GroceryProduct groceryProduct, String id) {
+    public Client addGroceryProductToClient(GroceryProduct groceryProduct, String id) {
 
         if (clientRepository.existsById(id)) {
-            GroceryProduct newGroceryProduct = new GroceryProduct(
+            /*GroceryProduct newGroceryProduct = new GroceryProduct(
                     groceryProduct.id(),
                     groceryProduct.category(),
                     groceryProduct.name(),
                     groceryProduct.price(),
-                    groceryProduct.image());
+                    groceryProduct.image());*
+                  
+             */
 
             Client client = clientRepository.findById(id).get();
             client.shoppingList().add(newGroceryProduct);
@@ -38,7 +40,7 @@ public class ClientService {
         } else {
             throw new NoSuchElementException("No Client found with Id:" + id);
         }
-    }*/
+    }
 
     public Client addClient(Client clientDto) {
         Client client = new Client(clientDto.id(), clientDto.shoppingList());

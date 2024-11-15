@@ -27,10 +27,10 @@ public class ClientController {
         return clientService.getClientById(id).orElseThrow(() -> new NoSuchElementException("Task not found"));
     }
 
-    /* @PostMapping("{id}/shoppingList")
+    @PostMapping("{id}/shoppingList")
     public Client addGroceryProductToClient(@PathVariable String id, @RequestBody GroceryProduct groceryProduct) {
         return clientService.addGroceryProductToClient(groceryProduct, id);
-    }*/
+    }
 
     @PostMapping
     public Client addClient(@RequestBody Client client) {
