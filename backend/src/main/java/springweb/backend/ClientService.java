@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -14,16 +14,17 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-
     public List<Client> getAllClients() {
         return clientRepository.findAll();
     }
 
+    public Optional<Client> getClientById(String id) {
+        return clientRepository.findById(id);
+    }
 
+    /* public Client addGroceryProductToClient(GroceryProduct groceryProduct, String id) {
 
-    public Client addGroceryProductToClient(GroceryProduct groceryProduct,String id) {
-
-        if (clientRepository.existsById(id)){
+        if (clientRepository.existsById(id)) {
             GroceryProduct newGroceryProduct = new GroceryProduct(
                     groceryProduct.id(),
                     groceryProduct.category(),
@@ -34,45 +35,48 @@ public class ClientService {
             Client client = clientRepository.findById(id).get();
             client.shoppingList().add(newGroceryProduct);
             return clientRepository.save(client);
-        }else {
+        } else {
             throw new NoSuchElementException("No Client found with Id:" + id);
         }
-    }
+    }*/
 
-    public Client addClient(Client client) {
+    public Client addClient(Client clientDto) {
+        Client client = new Client(clientDto.id(), clientDto.shoppingList());
         return clientRepository.save(client);
     }
 
-    public boolean deleteClientById(String id) {
-        if (clientRepository.existsById(id)){
-            clientRepository.deleteById(id);
-            return true;
-        }else {
+    public Client updateClient(String id, Client clientDto) {
+        if (clientRepository.existsById(id)) {
+            Client updatedClient = new Client(id, clientDto.shoppingList());
+            return clientRepository.save(updatedClient);
+        } else {
             throw new NoSuchElementException("No Client found with Id:" + id);
         }
     }
 
-    public List<GroceryProduct> getAllGroceryProductsFromClient(String id) {
-        if (clientRepository.existsById(id)){
+    public boolean deleteClientById(String id) {
+        if (clientRepository.existsById(id)) {
+            clientRepository.deleteById(id);
+            return true;
+        } else {
+            throw new NoSuchElementException("No Client found with Id:" + id);
+        }
+    }
+
+    /*public List<GroceryProduct> getAllGroceryProductsFromClient(String id) {
+        if (clientRepository.existsById(id)) {
             return clientRepository.findById(id).get().shoppingList();
         }
         throw new NoSuchElementException("No Client found with Id:" + id);
-    }
+        }*/
 
-    public Client getClientById(String id) {
-        if (clientRepository.existsById(id)){
-            return clientRepository.findById(id).get();
-        }
-        throw new NoSuchElementException("No Client found with Id:" + id);
-    }
-
-    public void deleteProductByIdFromClientById(String idClient, String idProduct) {
-        if (clientRepository.existsById(idClient)){
+    /*public void deleteProductByIdFromClientById(String idClient, String idProduct) {
+        if (clientRepository.existsById(idClient)) {
             Client client = clientRepository.findById(idClient).get();
             boolean productExists = client.shoppingList()
                     .stream()
                     .anyMatch(product -> product.id().equals(idProduct));
-            if (!client.shoppingList().isEmpty() && productExists){
+            if (!client.shoppingList().isEmpty() && productExists) {
 
                 List<GroceryProduct> filteredList = client.shoppingList()
                         .stream()
@@ -88,5 +92,5 @@ public class ClientService {
 
         }
         throw new NoSuchElementException("No Client found with Id:" + idClient);
-    }
+    }*/
 }
