@@ -11,7 +11,9 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setQuery(value);
-        onSearch(value);  // Trigger filtering when the user types
+
+        const queryToSearch =value.toLowerCase();
+        onSearch(queryToSearch);
     };
 
     return (

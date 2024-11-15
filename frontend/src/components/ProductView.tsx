@@ -28,7 +28,7 @@ export default function ProductView() {
         } else {
             const lowercasedQuery = query.toLowerCase();
             const filtered = products.filter((product) =>
-                product.name.toLowerCase().includes(lowercasedQuery)
+                product.name.toLowerCase().startsWith(lowercasedQuery)
             );
             setFilteredProducts(filtered);
         }
