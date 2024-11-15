@@ -47,8 +47,8 @@ public class ClientController {
         clientService.deleteClientById(id);
     }
 
-    /* @DeleteMapping("{idClient}/shoppingList{idProduct}")
+    @DeleteMapping("{idClient}/shoppingList/{idProduct}")
     public void deleteProductByIdFromClientById(@PathVariable String idClient, @PathVariable String idProduct) {
         clientService.deleteProductByIdFromClientById(idClient,idProduct);
-    }*/
+    }
 }

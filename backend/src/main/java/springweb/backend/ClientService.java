@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ClientService {
@@ -25,17 +26,8 @@ public class ClientService {
     public Client addGroceryProductToClient(GroceryProduct groceryProduct, String id) {
 
         if (clientRepository.existsById(id)) {
-            /*GroceryProduct newGroceryProduct = new GroceryProduct(
-                    groceryProduct.id(),
-                    groceryProduct.category(),
-                    groceryProduct.name(),
-                    groceryProduct.price(),
-                    groceryProduct.image());*
-                  
-             */
-
             Client client = clientRepository.findById(id).get();
-            client.shoppingList().add(newGroceryProduct);
+            client.shoppingList().add(groceryProduct);
             return clientRepository.save(client);
         } else {
             throw new NoSuchElementException("No Client found with Id:" + id);
@@ -65,14 +57,16 @@ public class ClientService {
         }
     }
 
-    /*public List<GroceryProduct> getAllGroceryProductsFromClient(String id) {
+    /* WIP
+    public List<GroceryProduct> getAllGroceryProductsFromClient(String id) {
         if (clientRepository.existsById(id)) {
             return clientRepository.findById(id).get().shoppingList();
         }
         throw new NoSuchElementException("No Client found with Id:" + id);
-        }*/
+        }
+     */
 
-    /*public void deleteProductByIdFromClientById(String idClient, String idProduct) {
+    public void deleteProductByIdFromClientById(String idClient, String idProduct) {
         if (clientRepository.existsById(idClient)) {
             Client client = clientRepository.findById(idClient).get();
             boolean productExists = client.shoppingList()
@@ -89,10 +83,11 @@ public class ClientService {
                 client.shoppingList().addAll(filteredList);
 
                 clientRepository.save(client);
+            } else {
+                throw new NoSuchElementException("No Product found with Id:" + idProduct);
             }
-            throw new NoSuchElementException("No Product found with Id:" + idProduct);
-
+        } else {
+            throw new NoSuchElementException("No Client found with Id:" + idClient);
         }
-        throw new NoSuchElementException("No Client found with Id:" + idClient);
-    }*/
+    }
 }
