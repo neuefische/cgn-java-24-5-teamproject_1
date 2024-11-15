@@ -18,7 +18,7 @@ export default function ShoppingListView() {
             })
     }
 
-    useEffect(() => fetchClients, []);
+    useEffect(() => fetchClients(), []);
 
     if (!client) {
         return "Lade..."
