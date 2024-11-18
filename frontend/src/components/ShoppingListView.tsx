@@ -2,6 +2,7 @@ import "./ShoppingListView.css"
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {Client} from "../Client.ts";
+import {ShoppingListCard} from "./ShoppingListCard.tsx";
 
 export default function ShoppingListView() {
 
@@ -28,7 +29,9 @@ export default function ShoppingListView() {
         <div className="shoppingListView-container">
             <h2>Shopping Cart</h2>
             <h2>clients</h2>
-                {client.id}
+            {
+                client.shoppingList.map((product)=>{return <ShoppingListCard  key={product.id} product={product}/>})
+            }
         </div>
     );
 };
