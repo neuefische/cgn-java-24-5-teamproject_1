@@ -5,6 +5,7 @@
     background-color: pink;
     width: 55%;
     min-width: 700px;
+    max-width: 1000px;
 }
 
 .productView-container h2 {

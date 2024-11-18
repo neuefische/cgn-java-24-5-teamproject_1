@@ -1,17 +1,17 @@
-.shoppingListView-container{
+.clientShoppingListView-container{
     font-family: Arial, sans-serif;
     border: 10px solid hsl(100,10%, 80%);
     border-radius: 50px;
     background-color: hsla(201, 100%, 50%,0.5);
     width: 55%;
     min-width: 700px;
-
+    max-width: 850px;
     padding: 20px;
     margin: 10px;
 }
 
 .shoppingList-container{
-
+justify-content: center;
 }
 
 h2{

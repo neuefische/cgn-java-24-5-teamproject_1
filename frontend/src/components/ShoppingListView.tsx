@@ -26,12 +26,18 @@ export default function ShoppingListView() {
     }
 
     return (
-        <div className="shoppingListView-container">
+        <div className="clientShoppingListView-container">
             <h2>Shopping Cart</h2>
-            <h2>clients</h2>
+
+            <h2>client</h2>
             {
-                client.shoppingList.map((product)=>{return <ShoppingListCard  key={product.id} product={product}/>})
+                client.shoppingList.map((product) => {
+                    return <ShoppingListCard key={product.id} product={product}/>
+                })
             }
-        </div>
-    );
+
+
+</div>
+    )
+    ;
 };
