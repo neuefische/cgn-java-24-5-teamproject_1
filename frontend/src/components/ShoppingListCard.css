@@ -39,3 +39,8 @@ h3 {
     width: auto;
     height: 100%;
 }
+
+.deleteButton{
+    border-radius: 20%;
+    background-color: hsla(70,40%,60%,0.3);
+}

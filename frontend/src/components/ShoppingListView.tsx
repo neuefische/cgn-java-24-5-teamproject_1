@@ -7,6 +7,7 @@ import {ShoppingListCard} from "./ShoppingListCard.tsx";
 export default function ShoppingListView() {
 
     const [client, setClient] = useState<Client>()
+    const [totalPrice, setTotalPrice] = useState<number>(0)
 
     function fetchClients() {
         axios({
@@ -16,8 +17,22 @@ export default function ShoppingListView() {
         })
             .then((response) => {
                 setClient(response.data)
+                getTotalPrice(response.data)
             })
     }
+
+    function addToBill(price: number){
+
+        setTotalPrice(totalPrice +price );
+    }
+
+    function getTotalPrice(client: Client){
+        client.shoppingList.map(product => {return addToBill(product.price)})
+    }
+
+
+
+
 
     useEffect(() => fetchClients(), []);
 
@@ -29,12 +44,16 @@ export default function ShoppingListView() {
         <div className="clientShoppingListView-container">
             <h2>Shopping Cart</h2>
 
-            <h2>client</h2>
+            <h3>Client: Max Mustermann</h3>
             {
                 client.shoppingList.map((product) => {
-                    return <ShoppingListCard key={product.id} product={product}/>
+                    return (
+                        <ShoppingListCard key={product.id} product={product}/>
+                    )
                 })
             }
+            <h3>Total Price: {totalPrice}</h3>
+
 
 
 </div>

@@ -12,6 +12,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
 .productCard-container img {
@@ -25,4 +28,11 @@ h3{
     font-family: Arial, sans-serif;
     color: hsl(0,0%,20%);
     text-transform: capitalize;
+}
+.addProductButton{
+
+}
+
+.productCard-container:hover {
+    background-color: hsla(50,0%,0%,0.3);
 }
