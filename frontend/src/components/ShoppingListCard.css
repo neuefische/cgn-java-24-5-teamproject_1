@@ -13,8 +13,12 @@ h3 {
     padding: 10px;
     margin: 10px;
     text-align: center;
-    background-color: hsla(100,0%,0%,0.2);
+    background-color: hsla(70,40%,60%,0.2);
+    width: 50%;
+    min-width: 800px;
+    /*
     width: 800px;
+    */
     height: 20px;
     display: flex;
     flex-direction: row;

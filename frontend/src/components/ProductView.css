@@ -3,7 +3,8 @@
     border: 10px solid hsl(100,10%, 80%);
     border-radius: 50px;
     background-color: pink;
-    width: 55%
+    width: 55%;
+    min-width: 700px;
 }
 
 .productView-container h2 {

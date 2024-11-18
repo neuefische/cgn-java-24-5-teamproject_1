@@ -2,10 +2,18 @@
     font-family: Arial, sans-serif;
     border: 10px solid hsl(100,10%, 80%);
     border-radius: 50px;
-    background-color: hsla(50,0%,0%,0.2);
-    width: 55%
+    background-color: hsla(201, 100%, 50%,0.5);
+    width: 55%;
+    min-width: 700px;
+
+    padding: 20px;
+    margin: 10px;
 }
 
 .shoppingList-container{
 
+}
+
+h2{
+    text-align: center;
 }
