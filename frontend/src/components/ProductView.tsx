@@ -13,7 +13,7 @@ export default function ProductView() {
     function fetchAllProducts() {
         axios({
             method: "GET",
-            url: "api/store",
+            url: "api/store/products",
 
         })
             .then((response) => {

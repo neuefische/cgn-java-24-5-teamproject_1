@@ -1,0 +1,11 @@
+.shoppingListView-container{
+    font-family: Arial, sans-serif;
+    border: 10px solid hsl(100,10%, 80%);
+    border-radius: 50px;
+    background-color: pink;
+    width: 55%
+}
+
+.shoppingList-container{
+
+}
