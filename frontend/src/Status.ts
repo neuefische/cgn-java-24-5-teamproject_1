@@ -1,1 +1,1 @@
-export type Status = "available" | "not_available"
+export type Status = "sold" | "available"
