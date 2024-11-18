@@ -7,6 +7,8 @@
         "category": "fruit",
         "name": "apple",
         "price": 1.5,
+        "count": 1,
+        "status": "sold",
         "image": "apple.jpg"
       },
       {
@@ -14,6 +16,8 @@
         "category": "fruit",
         "name": "banana",
         "price": 1,
+        "count": 1,
+        "status": "sold",
         "image": "banane.jpg"
       }
     ]
@@ -26,6 +30,8 @@
         "category": "fruit",
         "name": "apple",
         "price": 1.5,
+        "count": 1,
+        "status": "sold",
         "image": "apple.jpg"
       },
       {
@@ -33,6 +39,8 @@
         "category": "fruit",
         "name": "banana",
         "price": 1,
+        "count": 1,
+        "status": "sold",
         "image": "banane.jpg"
       }
     ]
