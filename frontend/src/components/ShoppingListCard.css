@@ -1,0 +1,46 @@
+
+h3 {
+    align-content: center;
+    font-family: Arial, sans-serif;
+    color: hsl(0, 0%, 20%);
+    text-transform: capitalize;
+}
+
+.shoppingListCard-container {
+
+    border: 5px solid hsl(0,0%, 80%);
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px hsla(0,0%,0%,0.1);
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background-color: hsla(70,40%,60%,0.2);
+    width: 50%;
+    min-width: 800px;
+    /*
+    width: 800px;
+    */
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.shoppingListCard-container:hover {
+    background-color: hsla(50, 0%, 0%, 0.1);
+}
+
+.shoppingListCard-container img {
+    border-radius: 50%;
+    width: auto;
+    height: 100%;
+}
+
+.deleteButton{
+    border-radius: 20%;
+    background-color: hsla(70,40%,60%,0.3);
+}

@@ -6,11 +6,14 @@ import ShoppingListView from "./components/ShoppingListView.tsx";
 export default function App() {
 
   return (
-    <>
-        <h1>Grocery</h1>
-        <ProductView/>
-        <ShoppingListView/>
-    </>
+      <>
+          <h1>Grocery</h1>
+          <div className="marketContainer">
+              <ProductView/>
+              <ShoppingListView/>
+          </div>
+
+      </>
   )
 }
 
