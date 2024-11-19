@@ -7,19 +7,14 @@ h3 {
 }
 
 .shoppingListCard-container {
-
+    flex: 1;
+    padding: 5px;
+    margin: 10px;
     border: 5px solid hsl(0,0%, 80%);
     border-radius: 20px;
     box-shadow: 5px 5px 5px hsla(0,0%,0%,0.1);
-    padding: 10px;
-    margin: 10px;
     text-align: center;
     background-color: hsla(70,40%,60%,0.2);
-    width: 50%;
-    min-width: 800px;
-    /*
-    width: 800px;
-    */
     height: 20px;
     display: flex;
     flex-direction: row;
