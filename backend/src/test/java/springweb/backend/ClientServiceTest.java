@@ -15,12 +15,12 @@ public class ClientServiceTest {
     @Test
     public void GetAllClients_Test() {
         // GIVEN
-        GroceryProduct product = new GroceryProduct("1", "Fruit", "Apple", 0.99, "apple.jpg");
+        GroceryProduct product = new GroceryProduct("1", "Fruit", "Apple", 0.99, 1,"test-status" ,"apple.jpg");
         List<GroceryProduct> shoppingList1 = List.of(product);
         Client expectedClient1 = new Client("123", shoppingList1);
 
-        GroceryProduct product2 = new GroceryProduct("2", "Fruit", "Banana", 500, "banane.jpg");
-        GroceryProduct product3 = new GroceryProduct("3", "Fruit", "Kiwi", 1.80, "ps5.jpg");
+        GroceryProduct product2 = new GroceryProduct("2", "Fruit", "Banana", 500, 1,"test-status" ,"banane.jpg");
+        GroceryProduct product3 = new GroceryProduct("3", "Fruit", "Kiwi", 1.80, 1,"test-status" ,"ps5.jpg");
         List<GroceryProduct> shoppingList2 = List.of(product2, product3);
         Client expectedClient2 = new Client("456", shoppingList2);
 
@@ -40,7 +40,7 @@ public class ClientServiceTest {
     @Test
     public void GetClientById_Test() {
         // GIVEN
-        GroceryProduct product = new GroceryProduct("1", "Fruit", "Apple", 0.99, "apple.jpg");
+        GroceryProduct product = new GroceryProduct("1", "Fruit", "Apple", 0.99, 1,"test-status" ,"apple.jpg");
         List<GroceryProduct> shoppingList = List.of(product);
         Client expectedClient = new Client("123", shoppingList);
 
