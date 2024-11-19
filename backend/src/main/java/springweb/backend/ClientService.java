@@ -35,8 +35,7 @@ public class ClientService {
     }
 
     public Client addClient(Client clientDto) {
-        Client client = new Client(clientDto.id(), clientDto.shoppingList());
-        return clientRepository.save(client);
+        return null;
     }
 
     public Client updateClient(String id, Client clientDto) {
