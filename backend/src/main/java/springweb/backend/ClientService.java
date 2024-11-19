@@ -92,4 +92,6 @@ public class ClientService {
     }
 
 
+    public void changeProductByIdFromClientById(String idClient, String idProduct) {
+    }
 }

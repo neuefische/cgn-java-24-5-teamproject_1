@@ -41,7 +41,7 @@ public class ClientController {
     public Client updateTask(@PathVariable String id, @RequestBody Client clientDto) {
         return clientService.updateClient(id, clientDto);
     }
-    @DeleteMapping("{idClient}/shoppingList/{idProduct}")
+    @PutMapping("{idClient}/shoppingList/{idProduct}")
     public void changeProductCountByIdFromClientById(@PathVariable String idClient, @PathVariable String idProduct) {
         clientService.changeProductByIdFromClientById(idClient,idProduct);
     }
