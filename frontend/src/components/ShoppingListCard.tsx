@@ -2,17 +2,21 @@ import "./ShoppingListCard.css"
 //import {Client} from "../Client.ts";
 import {Product} from "../Product.ts";
 import axios from "axios";
+import {useState} from "react";
 
 
 type Props = {
     product: Product
+    update: ()=>void;
 }
 
 export function ShoppingListCard(props: Props) {
 
+    const [count, setCount] = useState(props.product.count)
+
     function deleteProductFromCart() {
         console.log(props.product.name + " deleted")
-        axios({
+/*        axios({
             method: "PUT",
             url: `api/store/clients/1/shoppingList/${props.product.id}`,
             data: {
@@ -24,7 +28,27 @@ export function ShoppingListCard(props: Props) {
             })
             .catch(error => {
                 console.error("Error updating product count:", error);
+            });*/
+
+        let newCount: number = count - 1;
+        if(newCount<0){
+            newCount = 0;
+        }
+
+        setCount(newCount)
+
+        axios.put("/api/store/clients/1/shoppingList/"+props.product.id, {
+            ...props.product,
+            count: newCount,
+        } as Product)
+            .then(response => {
+                console.log("Product count in cart updated successfully:", response.data);
+            })
+            .then(props.update)
+            .catch(error => {
+                console.error("Error updating product count:", error);
             });
+
     }
 
     return (

@@ -91,6 +91,34 @@ public class ClientService {
     }
 
 
-    public void changeProductByIdFromClientById(String idClient, String idProduct) {
-    }
+    public Client changeProductByIdFromClientById(String idClient, String idProduct, GroceryProduct productToUpdate) {
+        if (clientRepository.existsById(idClient)) {
+            Client client = clientRepository.findById(idClient).orElseThrow(
+                    () -> new NoSuchElementException("No Client found with Id: " + idClient)
+            );
+
+            boolean productExists = client.shoppingList().stream()
+                    .anyMatch(product -> product.id().equals(idProduct));
+
+            if (!productExists) {
+                throw new NoSuchElementException("No Product found with Id: " + idProduct);
+            }
+
+            List<GroceryProduct> updatedList = client.shoppingList().stream()
+                    .map(product -> {
+                        if (product.id().equals(idProduct)) {
+                            return productToUpdate.withId(product.id());
+                        }
+                        return product;
+                    })
+                    .toList();
+
+            client.shoppingList().clear();
+            client.shoppingList().addAll(updatedList);
+
+            return clientRepository.save(client);
+        } else {
+            throw new NoSuchElementException("No Client found with Id: " + idClient);
+        }
+        }
 }

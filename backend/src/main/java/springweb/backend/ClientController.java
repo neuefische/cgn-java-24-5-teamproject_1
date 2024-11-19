@@ -42,8 +42,8 @@ public class ClientController {
         return clientService.updateClient(id, clientDto);
     }
     @PutMapping("{idClient}/shoppingList/{idProduct}")
-    public void changeProductCountByIdFromClientById(@PathVariable String idClient, @PathVariable String idProduct) {
-        clientService.changeProductByIdFromClientById(idClient,idProduct);
+    public Client changeProductCountByIdFromClientById(@PathVariable String idClient, @PathVariable String idProduct, @RequestBody GroceryProduct productDto) {
+        return clientService.changeProductByIdFromClientById(idClient,idProduct,productDto);
     }
 
     @DeleteMapping({"{id}"})

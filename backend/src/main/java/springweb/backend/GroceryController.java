@@ -1,7 +1,9 @@
 package springweb.backend;
 
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -21,9 +23,9 @@ public class GroceryController {
         return groceryService.getAllGroceryProducts();
     }
 
-    @PutMapping("/{idProduct}")
-    public GroceryProduct updateProduct(@PathVariable String id, @RequestBody GroceryProduct productDto) {
-        return groceryService.updateProduct(id, productDto);
+    @PutMapping(path="/{idProduct}")
+    public GroceryProduct updateProduct(@PathVariable String idProduct, @RequestBody GroceryProduct productDto) {
+        return groceryService.updateProduct(idProduct, productDto);
     }
 
 }

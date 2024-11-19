@@ -48,7 +48,7 @@ export default function ShoppingListView() {
             {
                 client.shoppingList.map((product) => {
                     return (
-                        <ShoppingListCard key={product.id} product={product}/>
+                        <ShoppingListCard key={product.id} product={product} update={fetchClients}/>
                     )
                 })
             }

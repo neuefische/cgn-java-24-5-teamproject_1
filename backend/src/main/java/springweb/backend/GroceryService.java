@@ -19,9 +19,9 @@ public class GroceryService {
     }
 
 
-    public GroceryProduct updateProduct(String id, GroceryProduct productDto) {
+    public GroceryProduct updateProduct(String id, GroceryProduct product) {
         if (groceryRepository.existsById(id)) {
-            GroceryProduct updatedProduct = new GroceryProduct(id, productDto.category(),productDto.name(),productDto.price(),productDto.count(),productDto.status(),productDto.image());
+            GroceryProduct updatedProduct = product.withId(product.id());
             return groceryRepository.save(updatedProduct);
         } else {
             throw new NoSuchElementException("No Product found with Id:" + id);

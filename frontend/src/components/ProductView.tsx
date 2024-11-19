@@ -44,7 +44,7 @@ export default function ProductView() {
             <SearchBar onSearch={filterProducts}/> {/* Add the SearchBar component */}
             <div className="productList-container">
                 {filteredProducts.map((product) => {
-                    return <ProductCard product={product} key={product.id}/>;
+                    return <ProductCard product={product} key={product.id} update={fetchAllProducts}/>;
                 })}
             </div>
         </div>
