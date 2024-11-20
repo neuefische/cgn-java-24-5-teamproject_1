@@ -24,7 +24,7 @@ public class ClientController {
 
     @GetMapping({"{id}"})
     public Client getClientByID(@PathVariable String id) {
-        return clientService.getClientById(id).orElseThrow(() -> new NoSuchElementException("Task not found"));
+        return clientService.getClientById(id).orElseThrow(() -> new NoSuchElementException("Client not found"));
     }
 
     @PostMapping("{id}/shoppingList")
@@ -38,7 +38,7 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
-    public Client updateTask(@PathVariable String id, @RequestBody Client clientDto) {
+    public Client updateClient(@PathVariable String id, @RequestBody Client clientDto) {
         return clientService.updateClient(id, clientDto);
     }
     @PutMapping("{idClient}/shoppingList/{idProduct}")
