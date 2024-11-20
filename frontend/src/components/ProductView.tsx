@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {Product} from "../Product.ts";
 import SearchBar from "./SearchBar.tsx"
 
+
 export default function ProductView() {
 
     const [products, setProducts] = useState<Product[]>([]);
@@ -22,6 +23,14 @@ export default function ProductView() {
             });
     }
 
+    function fetchAllProductsInShoppingList() {
+    axios({
+        method: "GET",
+        url: "api/store/clients/1"
+
+    })
+}
+
     const filterProducts = (query: string) => {
         if (query.trim() === "") {
             setFilteredProducts(products);
@@ -34,8 +43,11 @@ export default function ProductView() {
         }
     };
 
+
+
     useEffect(() => {
         fetchAllProducts();
+        fetchAllProductsInShoppingList();
     }, []);
 
     return (
@@ -44,7 +56,7 @@ export default function ProductView() {
             <SearchBar onSearch={filterProducts}/> {/* Add the SearchBar component */}
             <div className="productList-container">
                 {filteredProducts.map((product) => {
-                    return <ProductCard product={product} key={product.id} update={fetchAllProducts}/>;
+                    return <ProductCard product={product} key={product.id} update={fetchAllProducts} updateCart={fetchAllProductsInShoppingList}/>;
                 })}
             </div>
         </div>

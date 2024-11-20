@@ -4,6 +4,8 @@ import axios from "axios";
 import {Client} from "../Client.ts";
 import {ShoppingListCard} from "./ShoppingListCard.tsx";
 
+
+
 export default function ShoppingListView() {
 
     const [client, setClient] = useState<Client>()
@@ -21,6 +23,16 @@ export default function ShoppingListView() {
             })
     }
 
+    function fetchAllProducts() {
+        axios({
+            method: "GET",
+            url: "api/store/products",
+
+        })
+    }
+
+
+
     function addToBill(price: number){
 
         setTotalPrice(totalPrice +price );
@@ -34,7 +46,11 @@ export default function ShoppingListView() {
 
 
 
-    useEffect(() => fetchClients(), []);
+    //useEffect(() => fetchClients(), []);
+    useEffect(() => {
+        fetchClients();
+        fetchAllProducts();
+    }, []);
 
     if (!client) {
         return "Lade..."
@@ -48,7 +64,7 @@ export default function ShoppingListView() {
             {
                 client.shoppingList.map((product) => {
                     return (
-                        <ShoppingListCard key={product.id} product={product} update={fetchClients}/>
+                        <ShoppingListCard key={product.id} product={product} updateList={fetchClients} updateStore={fetchAllProducts}/>
                     )
                 })
             }

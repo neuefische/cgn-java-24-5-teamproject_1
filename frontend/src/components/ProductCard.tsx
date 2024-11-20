@@ -7,6 +7,8 @@ import {useState} from "react";
 type Props = {
     product: Product;
     update: ()=>void;
+    updateCart: ()=>void;
+    //shoppingList: Product[];
 }
 
 export default function ProductCard(props : Props) {
@@ -17,7 +19,7 @@ export default function ProductCard(props : Props) {
     function addProductToCart() {
 
 
-
+        // reduce count in store
         let newCount: number = count - 1;
         if(newCount<0){
             newCount = 0;
@@ -26,6 +28,7 @@ export default function ProductCard(props : Props) {
         setCount(newCount)
 
         console.log(props.product.name + " added" + newCount)
+
 
         axios.put("/api/store/products/"+props.product.id, {
             ...props.product,
@@ -38,7 +41,24 @@ export default function ProductCard(props : Props) {
             .catch(error => {
                 console.error("Error updating product count:", error);
             });
+
+        // add product to shopping list if not exists otherwise increase count
+
+        axios.post("/api/store/clients/1/shoppingList", props.product)
+            .then(response => {
+                console.log("Product added to cart successfully:", response.data);
+            })
+            .then(props.updateCart)
+            .catch(error => {
+                console.error("Error updating cart:", error);
+            });
+
+
     }
+
+
+
+
 
 
 

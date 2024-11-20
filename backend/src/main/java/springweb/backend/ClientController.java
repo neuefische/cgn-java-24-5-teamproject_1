@@ -22,14 +22,14 @@ public class ClientController {
         return clientService.getAllClients();
     }
 
-    @GetMapping({"{id}"})
-    public Client getClientByID(@PathVariable String id) {
-        return clientService.getClientById(id).orElseThrow(() -> new NoSuchElementException("Task not found"));
+    @GetMapping({"{idClient}"})
+    public Client getClientByID(@PathVariable String idClient) {
+        return clientService.getClientById(idClient).orElseThrow(() -> new NoSuchElementException("Task not found"));
     }
 
-    @PostMapping("{id}/shoppingList")
-    public Client addGroceryProductToClient(@PathVariable String id, @RequestBody GroceryProduct groceryProduct) {
-        return clientService.addGroceryProductToClient(groceryProduct, id);
+    @PostMapping("{idClient}/shoppingList")
+    public Client addGroceryProductToClient(@PathVariable String idClient, @RequestBody GroceryProduct groceryProduct) {
+        return clientService.addGroceryProductToClient(groceryProduct, idClient);
     }
 
     @PostMapping
@@ -37,18 +37,18 @@ public class ClientController {
         return clientService.addClient(client);
     }
 
-    @PutMapping("/{id}")
-    public Client updateTask(@PathVariable String id, @RequestBody Client clientDto) {
-        return clientService.updateClient(id, clientDto);
+    @PutMapping("/{idClient}")
+    public Client updateTask(@PathVariable String idClient, @RequestBody Client clientDto) {
+        return clientService.updateClient(idClient, clientDto);
     }
     @PutMapping("{idClient}/shoppingList/{idProduct}")
     public Client changeProductCountByIdFromClientById(@PathVariable String idClient, @PathVariable String idProduct, @RequestBody GroceryProduct productDto) {
         return clientService.changeProductByIdFromClientById(idClient,idProduct,productDto);
     }
 
-    @DeleteMapping({"{id}"})
-    public void deleteClientById(@PathVariable String id) {
-        clientService.deleteClientById(id);
+    @DeleteMapping({"{idClient}"})
+    public void deleteClientById(@PathVariable String idClient) {
+        clientService.deleteClientById(idClient);
     }
 
     @DeleteMapping("{idClient}/shoppingList/{idProduct}")

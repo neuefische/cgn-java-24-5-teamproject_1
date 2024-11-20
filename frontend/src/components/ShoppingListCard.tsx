@@ -7,7 +7,8 @@ import {useState} from "react";
 
 type Props = {
     product: Product
-    update: ()=>void;
+    updateList: ()=>void;
+    updateStore: ()=>void;
 }
 
 export function ShoppingListCard(props: Props) {
@@ -16,19 +17,7 @@ export function ShoppingListCard(props: Props) {
 
     function deleteProductFromCart() {
         console.log(props.product.name + " deleted")
-/*        axios({
-            method: "PUT",
-            url: `api/store/clients/1/shoppingList/${props.product.id}`,
-            data: {
-                count: props.product.count, // The new count value for the product
-            },
-        })
-            .then(response => {
-                console.log("Product count updated successfully:", response.data);
-            })
-            .catch(error => {
-                console.error("Error updating product count:", error);
-            });*/
+
 
         let newCount: number = count - 1;
         if(newCount<0){
@@ -37,17 +26,34 @@ export function ShoppingListCard(props: Props) {
 
         setCount(newCount)
 
-        axios.put("/api/store/clients/1/shoppingList/"+props.product.id, {
-            ...props.product,
-            count: newCount,
-        } as Product)
-            .then(response => {
-                console.log("Product count in cart updated successfully:", response.data);
-            })
-            .then(props.update)
-            .catch(error => {
-                console.error("Error updating product count:", error);
-            });
+
+        if(count==0){
+            axios.delete("/api/store/clients/1/shoppingList/"+props.product.id,)
+                .then(response => {
+                    console.log("Product deleted from cart successfully:", response.data);
+                    console.log("/api/store/clients/1/shoppingList/"+props.product.id);
+                })
+                .then(props.updateList)
+                .catch(error => {
+                    console.error("Error updating product count:", error);
+                });
+        }
+        else{
+            axios.put("/api/store/clients/1/shoppingList/"+props.product.id, {
+                ...props.product,
+                count: newCount,
+            } as Product)
+                .then(response => {
+                    console.log("Product count in cart updated successfully:", response.data);
+                })
+                .then(props.updateList)
+                .catch(error => {
+                    console.error("Error updating product count:", error);
+                });
+        }
+
+
+
 
     }
 
